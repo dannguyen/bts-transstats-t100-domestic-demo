@@ -1,4 +1,8 @@
-bts-transstats-t100-domestic-demo
-=================================
+# BTS Transtats, T100
 
-Demo of data processing for BTS transtats
+### A sample data diary
+
+
+Steps:
+
+- [Download data](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=259&DB_Short_Name=Air%20Carriers)
