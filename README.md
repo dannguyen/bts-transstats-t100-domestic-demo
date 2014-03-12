@@ -156,6 +156,17 @@ For the purposes of this exercise, I use [Sequel Pro](http://www.sequelpro.com/)
   ORDER BY total_departures DESC
  ~~~
 
+ __Results:__
+
+ UNIQUE_CARRIER | UNIQUE_CARRIER_NAME | total_departures
+ ----------------|--------------|----------------:
+ WN | Southwest Airlines Co. | 1030147
+ DL | Delta Air Lines Inc. | 698188
+ EV | ExpressJet Airlines Inc. | 678610
+ OO | SkyWest Airlines Inc. 568164
+ AA | American Airlines Inc. | 487525
+ UA | United Air Lines Inc. | 463063
+
 - List the city-to-city routes flown by Delta Air Lines, sorted in descending order of the sum of passengers flown.
 
  ~~~sql
@@ -165,6 +176,17 @@ For the purposes of this exercise, I use [Sequel Pro](http://www.sequelpro.com/)
   GROUP BY ORIGIN_AIRPORT_ID, DEST_AIRPORT_ID
   ORDER BY total_passengers DESC
  ~~~
+
+ __Results:__
+
+ |ORIGIN_CITY_NAME|DEST_CITY_NAME|total_passengers
+ |----------------|--------------|----------------:
+ |Orlando, FL|Atlanta, GA|888016
+ |Atlanta, GA|Orlando, FL|882425
+ |Atlanta, GA|New York, NY| 704765
+ |New York, NY|Atlanta, GA|699186
+ |Atlanta, GA|Los Angeles, CA|673863
+ |Atlanta, GA|Fort Lauderdale, FL|659698
 
 
 ## Normalizing the database
