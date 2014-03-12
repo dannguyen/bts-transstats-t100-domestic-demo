@@ -32,6 +32,8 @@ The [official data description](http://www.transtats.bts.gov/TableInfo.asp?Table
 
 ## Download air carrier data file from BTS
 
+![The BTS web form](http://i.imgur.com/ppQw6Vx.png)
+
 The data can be downloaded as flat CSV files [from this web form](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=259&DB_Short_Name=Air%20Carriers).
 
 To download the __November 2013__ dataset, set the form options accordingly:
