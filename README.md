@@ -67,7 +67,7 @@ Table | Records | Description
 [L_WORLD_AREA_CODES.csv ](data/lookup-tables/L_WORLD_AREA_CODES.csv )  |  333    |   e.g. `"759","North Vietnam"`
 
 
-## Data exploration
+## Importing into SQL
 
 We will now __import__ the T100 data file into the SQL database of your choice: [Sequel Pro](http://www.sequelpro.com/) is a great GUI for Mac and MySQL, and [Firefox's SQLite Manager Plugin](https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/?src) is cross-platform.
 
@@ -146,14 +146,40 @@ For the purposes of this exercise, I use [Sequel Pro](http://www.sequelpro.com/)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  ~~~
 
-3. __Import the T100 CSV__ - Now simply import the CSV file into our newly created table. Sequel Pro will match up the columns in the CSV file to those in our `t100_domestic_carriers`
+4. __Import the T100 CSV__ - Now simply import the CSV file into our newly created table. Sequel Pro will match up the columns in the CSV file to those in our `t100_domestic_carriers`
 
  ![Importing into Sequel Pro](http://i.imgur.com/OeKvLPO.png)
 
 
 
 
+## Data exploration
 
+- Create a list of carriers in this dataset, sorted in descending order by number of performed departures
+ ~~~sql
+ SELECT UNIQUE_CARRIER, UNIQUE_CARRIER_NAME, SUM(DEPARTURES_PERFORMED) as total_departures 
+  FROM bts_data.t100_domestic_carriers
+  GROUP BY UNIQUE_CARRIER
+  ORDER BY total_departures DESC
+ ~~~
+
+- List the city-to-city routes flown by Delta Air Lines, sorted in descending order of the sum of passengers flown.
+
+ ~~~sql
+ SELECT ORIGIN_CITY_NAME, DEST_CITY_NAME, SUM(PASSENGERS) AS total_passengers
+  FROM t100_domestic_carriers
+  WHERE UNIQUE_CARRIER='DL'
+  GROUP BY ORIGIN_AIRPORT_ID, DEST_AIRPORT_ID
+  ORDER BY total_passengers DESC
+ ~~~
+
+
+
+## Next steps
+
+- Import the lookup tables to create a normalized database.
+- Create a pruned version of the raw `t100_domestic_carriers` table
+- Import the entire time range of the BTS data
 
 
 
