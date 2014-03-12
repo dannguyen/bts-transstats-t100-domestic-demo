@@ -54,7 +54,6 @@ The BTS provides several lookup tables that will be useful in keeping our Air Ca
 
 Table | Records | Description
 ------|--------:|------------
-
 [L_AIRCRAFT_CONFIG.csv](data/lookup-tables/L_AIRCRAFT_CONFIG.csv)  |  6    | e.g. `"1","Passenger Configuration"` 
 [L_AIRCRAFT_GROUP.csv](data/lookup-tables/L_AIRCRAFT_GROUP.csv)  |  10    |  e.g. `"7","Jet, 3-Engine"`
 [L_AIRPORT_ID.csv](data/lookup-tables/L_AIRPORT_ID.csv)  |  6,260    |   a unique identifier for airports that persists regardless of changes to codes, e.g. `"10030","Port Vita, AK: Port Vita Airport"`
