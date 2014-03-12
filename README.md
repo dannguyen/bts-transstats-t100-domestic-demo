@@ -163,7 +163,7 @@ For the purposes of this exercise, I use [Sequel Pro](http://www.sequelpro.com/)
  WN | Southwest Airlines Co. | 1030147
  DL | Delta Air Lines Inc. | 698188
  EV | ExpressJet Airlines Inc. | 678610
- OO | SkyWest Airlines Inc. 568164
+ OO | SkyWest Airlines Inc. | 568164
  AA | American Airlines Inc. | 487525
  UA | United Air Lines Inc. | 463063
 
