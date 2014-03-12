@@ -9,10 +9,20 @@ This guide will cover how to download a dataset about U.S. air carriers from a g
 
 ### Quick reference
 
+#### Source
+
 - [Webform for T-100 Domestic Segment (U.S. Carriers)](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=259&DB_Short_Name=Air%20Carriers) - wherefrom the CSV is downloaded
+
+#### Tools
+
 - [Sequel Pro](http://www.sequelpro.com/) - A free MySQL client (for Mac OS X)
 - [Firefox SQLite Manager](https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/?src) - A free plugin for SQLite (which will work just as well as MySQL)
 
+#### Produced data
+
+- [CSV to MySQL dump of T100 Domestic Segment data](data/sql/bts_data_t100_domestic_carriers-RAW.sql)
+- [Nov. 2013, T100 Domestic Segment CSV](data/T_T100D_SEGMENT_US_CARRIER_ONLY_2013_All.csv)
+- [Sample of T100 Domestic Segment CSV](data/sample-T100D-segment-data.csv)
 
 
 ## About the data
@@ -49,23 +59,6 @@ Your browser will download a __ZIP__ file weighing roughly 10.4 MB and it will b
 Unzipping this file will produce a 94.1 MB plaintext CSV file. 
 
 This is what the [first 200 rows of that CSV looks like](data/sample-T100D-segment-data.csv).
-
-### Download lookup tables
-
-The BTS provides several lookup tables that will be useful in keeping our Air Carrier data normalized. I've included them in this diary's `data/` directory for your convenience. You can download them from the BTS webform, though they annoyingly have the nonsensical file extension of `.csv-`
-
-Table | Records | Description
-------|--------:|------------
-[L_AIRCRAFT_CONFIG.csv](data/lookup-tables/L_AIRCRAFT_CONFIG.csv)  |  6    | e.g. `"1","Passenger Configuration"` 
-[L_AIRCRAFT_GROUP.csv](data/lookup-tables/L_AIRCRAFT_GROUP.csv)  |  10    |  e.g. `"7","Jet, 3-Engine"`
-[L_AIRPORT_ID.csv](data/lookup-tables/L_AIRPORT_ID.csv)  |  6,260    |   a unique identifier for airports that persists regardless of changes to codes, e.g. `"10030","Port Vita, AK: Port Vita Airport"`
-[L_AIRCRAFT_TYPE.csv](data/lookup-tables/L_AIRCRAFT_TYPE.csv)  |  385    |  e.g. `"889","B787-900 Dreamliner"`
-[L_CITY_MARKET_ID.csv](data/lookup-tables/L_CITY_MARKET_ID.csv)  |  5,656    |   - a reference to a metro area that may be served by several airports., e.g. `"31703","New York City, NY (Metropolitan Area)"`
-[L_REGION.csv](data/lookup-tables/L_REGION.csv)  |  6    |   e.g. `"D", "Domestic"`
-[L_SERVICE_CLASS.csv](data/lookup-tables/L_SERVICE_CLASS.csv)  |  14    |  e.g.`"K","Scheduled Service K (F+G)"`
-[L_UNIQUE_CARRIERS.csv](data/lookup-tables/L_UNIQUE_CARRIERS.csv)  |  1,565    |  e.g. `"DL","Delta Air Lines Inc."`
-[L_WORLD_AREA_CODES.csv ](data/lookup-tables/L_WORLD_AREA_CODES.csv )  |  333    |   e.g. `"759","North Vietnam"`
-
 
 ## Importing into SQL
 
@@ -174,6 +167,27 @@ For the purposes of this exercise, I use [Sequel Pro](http://www.sequelpro.com/)
  ~~~
 
 
+## Normalizing the database
+
+
+### Download lookup tables
+
+The BTS provides several lookup tables that will be useful in keeping our Air Carrier data normalized. I've included them in this diary's `data/` directory for your convenience. You can also [download them directly from the BTS webform](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=259&DB_Short_Name=Air%20Carriers), though they annoyingly have the nonsensical file extension of `.csv-`
+
+Table | Records | Description
+------|--------:|------------
+[L_AIRCRAFT_CONFIG.csv](data/lookup-tables/L_AIRCRAFT_CONFIG.csv)  |  6    | e.g. `"1","Passenger Configuration"` 
+[L_AIRCRAFT_GROUP.csv](data/lookup-tables/L_AIRCRAFT_GROUP.csv)  |  10    |  e.g. `"7","Jet, 3-Engine"`
+[L_AIRPORT_ID.csv](data/lookup-tables/L_AIRPORT_ID.csv)  |  6,260    |   a unique identifier for airports that persists regardless of changes to codes, e.g. `"10030","Port Vita, AK: Port Vita Airport"`
+[L_AIRCRAFT_TYPE.csv](data/lookup-tables/L_AIRCRAFT_TYPE.csv)  |  385    |  e.g. `"889","B787-900 Dreamliner"`
+[L_CITY_MARKET_ID.csv](data/lookup-tables/L_CITY_MARKET_ID.csv)  |  5,656    |   - a reference to a metro area that may be served by several airports., e.g. `"31703","New York City, NY (Metropolitan Area)"`
+[L_REGION.csv](data/lookup-tables/L_REGION.csv)  |  6    |   e.g. `"D", "Domestic"`
+[L_SERVICE_CLASS.csv](data/lookup-tables/L_SERVICE_CLASS.csv)  |  14    |  e.g.`"K","Scheduled Service K (F+G)"`
+[L_UNIQUE_CARRIERS.csv](data/lookup-tables/L_UNIQUE_CARRIERS.csv)  |  1,565    |  e.g. `"DL","Delta Air Lines Inc."`
+[L_WORLD_AREA_CODES.csv ](data/lookup-tables/L_WORLD_AREA_CODES.csv )  |  333    |   e.g. `"759","North Vietnam"`
+
+
+(to be continued)
 
 ## Next steps
 
