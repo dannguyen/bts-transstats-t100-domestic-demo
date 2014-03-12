@@ -6,10 +6,12 @@ This is a sample data diary that walks through the steps of acquiring [air carri
 
 BTS has several databases related to air travel, including the T-100 Domestic Segment, which contains domestic flight route data. As of __March 2014__, the BTS has published the data through __November 2013__.
 
-| Records    |  __6.3+ million__
-| Fields     | __45__
-| First Year | __1990__
-| Frequency  | __Monthly__
+|            |                   |
+| ---------  | ------------------|
+| Records    |  __6.3+ million__ |
+| Fields     | __45__ |
+| First Year | __1990__ |
+| Frequency  | __Monthly__ |
 
 The [official data description](http://www.transtats.bts.gov/TableInfo.asp?Table_ID=259):
 
@@ -29,7 +31,9 @@ To download the __November 2013__ dataset, set the form options accordingly:
 
 Your browser will download a __ZIP__ file weighing roughly 10.4 MB and it will be named something like: `932989999_T_T100D_SEGMENT_US_CARRIER_ONLY.zip`
 
-Unzipping this file will produce a 94.1 MB plaintext CSV file.
+Unzipping this file will produce a 94.1 MB plaintext CSV file. 
+
+This is what the [first 200 rows of that CSV looks like](data/sample-T100D-segment-data.csv).
 
 
 
